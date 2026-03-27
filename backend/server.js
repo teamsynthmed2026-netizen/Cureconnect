@@ -113,14 +113,18 @@ app.use((err, req, res, next) => {
 // =====================================================
 // START SERVER
 // =====================================================
-app.listen(PORT, () => {
-  console.log('');
-  console.log('╔════════════════════════════════════════╗');
-  console.log('║   🏥  CureConnect API Server Started   ║');
-  console.log(`║   🚀  Running on port ${PORT}              ║`);
-  console.log(`║   📡  http://localhost:${PORT}             ║`);
-  console.log('╚════════════════════════════════════════╝');
-  console.log('');
-});
+// Only start the server if this file is run directly (local development)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log('');
+    console.log('╔════════════════════════════════════════╗');
+    console.log('║   🏥  CureConnect API Server Started   ║');
+    console.log(`║   🚀  Running on port ${PORT}              ║`);
+    console.log(`║   📡  http://localhost:${PORT}             ║`);
+    console.log('╚════════════════════════════════════════╝');
+    console.log('');
+  });
+}
+
 
 module.exports = app;
