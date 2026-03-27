@@ -24,7 +24,9 @@ export default function LoginPage() {
       login(res.data.user, res.data.token)
       navigate('/dashboard')
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed. Please try again.')
+      console.error('Login error details:', err.message, err.response?.status);
+      setError(err.response?.data?.message || `Login failed: ${err.message}. Please check your connection.`);
+
     } finally { setLoading(false) }
   }
 

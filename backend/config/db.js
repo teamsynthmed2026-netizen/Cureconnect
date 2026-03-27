@@ -5,10 +5,16 @@ require('dotenv').config();
 const supabaseUrl  = process.env.SUPABASE_URL;
 const supabaseKey  = process.env.SUPABASE_SERVICE_ROLE_KEY; // bypasses RLS for backend
 
+console.log('🔍 Checking Supabase Config:', {
+  hasUrl: !!supabaseUrl,
+  hasKey: !!supabaseKey,
+  urlDomain: supabaseUrl ? new URL(supabaseUrl).hostname : 'none'
+});
+
 if (!supabaseUrl || !supabaseKey) {
-  console.error('❌ Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY in .env');
-  process.exit(1);
+  console.error('❌ Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY! Please set these in Vercel settings.');
 }
+
 
 // createClient connects to: process.env.SUPABASE_URL (set in .env)
 const supabase = createClient(supabaseUrl, supabaseKey);
