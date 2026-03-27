@@ -7,7 +7,7 @@
     "backend"
   ],
   "scripts": {
-    "build": "cd frontend && npm run build",
+    "build": "cd frontend && npm run build && cp -r dist ../public",
     "start": "node backend/server.js"
   }
 }
