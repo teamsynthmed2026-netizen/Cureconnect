@@ -7,7 +7,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/frontend/dist/$1"
+      "destination": "/public/$1"
     }
   ],
   "routes": [
@@ -16,7 +16,8 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/frontend/dist/index.html"
+      "dest": "/public/index.html"
     }
   ]
 }
+

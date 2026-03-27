@@ -61,7 +61,8 @@ export default function SymptomCheckerPage() {
       const res = await symptomsAPI.check({ symptoms: selectedSymptoms, prompt: prompt.trim() })
       setResult(res.data)
     } catch (err) {
-      setError(err.response?.data?.message || 'Analysis failed. Make sure backend is running on port 5000.')
+      setError(err.response?.data?.message || 'Analysis failed. Please check if the backend service is running and configured correctly.')
+
     } finally { setLoading(false) }
   }
 

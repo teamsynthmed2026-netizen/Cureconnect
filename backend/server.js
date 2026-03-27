@@ -18,13 +18,9 @@ const PORT = process.env.PORT || 5000;
 // MIDDLEWARE
 // =====================================================
 
-// Allow cross-origin requests from the React frontend
-app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'], // Vite + CRA ports
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// Allow cross-origin requests
+app.use(cors());
+
 
 // Parse incoming JSON request bodies
 app.use(express.json({ limit: '10mb' }));
