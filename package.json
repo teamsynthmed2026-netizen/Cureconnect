@@ -7,7 +7,7 @@
     "backend"
   ],
   "scripts": {
-    "build": "cd frontend && npm run build && cd .. && mkdir -p public && cp -r frontend/dist/* public/",
+    "build": "cd frontend && npm run build && cd .. && rm -rf public && mkdir public && cp -r frontend/dist/* public/",
     "start": "node backend/server.js"
   },
   "dependencies": {
@@ -19,5 +19,6 @@
     "vite": "^5.0.0"
   }
 }
+
 
 
